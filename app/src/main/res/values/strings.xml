@@ -5,4 +5,5 @@
     <string name="hint_senha_login">Senha</string>
     <string name="label_button_login">Entrar</string>
     <string name="email_login_vazio">Infome seu email</string>
+    <string name="label_loading_abertos">Aguardando atendimento</string>
 </resources>

@@ -119,4 +119,9 @@ public class Services {
                 });
     }
 
+
+    public void lista_atendimentos_abertos (){
+
+    }
+
 }

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1077034826039",
+    "firebase_url": "https://simplesacesso-bb26d.firebaseio.com",
+    "project_id": "simplesacesso-bb26d",
+    "storage_bucket": "simplesacesso-bb26d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077034826039:android:678c218f0704d303",
+        "android_client_info": {
+          "package_name": "com.simples.acesso.atendimento"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077034826039-vqhfbd5kb3m7fs3722h20eb1erb1bssk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simples.acesso",
+            "certificate_hash": "563fec3d32cee2eacd4fc14251c8640e71859c76"
+          }
+        },
+        {
+          "client_id": "1077034826039-3ck9he8k186qqcgatljjh8nrg68t7h8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfR29suxxy_ZWoiwkfpFNb2qGTCwWMIiE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077034826039-3ck9he8k186qqcgatljjh8nrg68t7h8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
