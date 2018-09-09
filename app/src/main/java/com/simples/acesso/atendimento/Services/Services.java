@@ -11,6 +11,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.simples.acesso.atendimento.API.API;
+import com.simples.acesso.atendimento.R;
 import com.simples.acesso.atendimento.Utils.CarregaViews;
 import com.simples.acesso.atendimento.Views.Principal;
 
@@ -32,14 +33,14 @@ public class Services {
         this.editorProfile = activity.getSharedPreferences("profile", Context.MODE_PRIVATE).edit();
     }
 
-    public void login (final String telefone, final String senha){
+    public void entrar (final String telefone, final String senha){
         AndroidNetworking.post(API.SERVER+"/Modules/Login.php")
             .addBodyParameter("cellphone", telefone)
             .addBodyParameter("password", senha)
             .build()
             .getAsJSONObject(new JSONObjectRequestListener() {
                 @Override
-                public void onResponse(JSONObject response){
+                public void onResponse(final JSONObject response){
                     try {
                         int code = response.getInt("code");
                         switch (code){
@@ -60,9 +61,18 @@ public class Services {
                                 activity.finish();
                                 break;
                             case 100:
-                                String nome_usuario = response.getJSONObject("profile").getString("username");
+                                String usuario = response.getString("name");
                                 snackbar = Snackbar.make(view,
-                                        "Usuário "+nome_usuario+" logado", Snackbar.LENGTH_LONG);
+                                        "Usuário "+usuario+" logado", Snackbar.LENGTH_INDEFINITE);
+                                snackbar.setActionTextColor(activity.getResources().getColor(R.color.colorWhite));
+                                snackbar.setAction("Sair", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        try {
+                                            sair(response.getInt("id"));
+                                        } catch (JSONException e) {}
+                                    }
+                                });
                                 snackbar.show();
                                 break;
                             case 500:
@@ -80,6 +90,33 @@ public class Services {
                     CarregaViews.fecha();
                 }
             });
+    }
+
+    public void sair (int id){
+        CarregaViews.abre(activity,"Saindo");
+        AndroidNetworking.post(API.SERVER+"/Modules/Logout.php")
+                .addBodyParameter("id", String.valueOf(id))
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try{
+                            int code = response.getInt("code");
+                            switch (code){
+                                case 0:
+                                    CarregaViews.fecha();
+                                    editorProfile.putInt("id", 0);
+                                    editorProfile.commit();
+                                    activity.finishAffinity();
+                                    break;
+                            }
+                        }catch (JSONException e){}
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                    }
+                });
     }
 
 }

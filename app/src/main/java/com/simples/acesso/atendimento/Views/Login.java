@@ -1,24 +1,19 @@
 package com.simples.acesso.atendimento.Views;
 
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.simples.acesso.atendimento.R;
 import com.simples.acesso.atendimento.Services.Services;
 import com.simples.acesso.atendimento.Utils.CarregaViews;
 import com.simples.acesso.atendimento.Utils.Keyboard;
 import com.simples.acesso.atendimento.Utils.MascaraTelefone;
-
-import org.w3c.dom.Text;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
 
@@ -98,7 +93,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
             layoutSenhaLogin.setErrorEnabled(false);
             Keyboard.close(this, getWindow().getDecorView());
             CarregaViews.abre(this, "Autorizando");
-            new Services(this).login(MascaraTelefone.unmask(telefone), senha);
+            new Services(this).entrar(MascaraTelefone.unmask(telefone), senha);
         }
     }
 
