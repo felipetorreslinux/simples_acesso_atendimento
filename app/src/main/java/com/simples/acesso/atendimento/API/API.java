@@ -14,6 +14,8 @@ public class API {
         this.profile = activity.getSharedPreferences("profile", Context.MODE_PRIVATE);
     }
 
+    public static String SERVER = "http://simplesacesso.com";
+
     public String TOKEN (){
         return profile.getString("token", null);
     }

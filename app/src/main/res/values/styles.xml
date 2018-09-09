@@ -14,4 +14,9 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <style name="CustomDialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>
