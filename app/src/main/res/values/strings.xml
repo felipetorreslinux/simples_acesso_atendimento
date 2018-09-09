@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Simples Acesso Atendimento</string>
+    <string name="titulo_login">Acessar</string>
+    <string name="hint_email_login">Email</string>
+    <string name="hint_senha_login">Senha</string>
+    <string name="label_button_login">Entrar</string>
+</resources>
